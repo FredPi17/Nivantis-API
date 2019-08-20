@@ -1,9 +1,8 @@
-import http from 'http';
-import express from 'express';
-import logger from 'morgan';
-import bodyParser from 'body-parser';
 import routes from './server/routes';
-
+const express = require('express');
+const http = require('http');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
 const hostname = '0.0.0.0';
 const port = 3050;
 const app = express(); // setup express application
@@ -23,7 +22,7 @@ app.use(function (req, res, next) {
 routes(app);
 
 app.get('*', (req, res) => res.status(200).send({
-    message: 'Welcome to the default API route',
+    message: 'Welcome to the default API route of Nivantis API',
 }));
 
 server.listen(port, hostname, () => {
